@@ -1,0 +1,14 @@
+# Ignore all dotfiles...
+
+.*
+
+# except for .gitignore
+
+!.gitignore
+
+# Ignore IntelliJ files
+*.iws
+*.ipr
+*.iml
+*.sublime-project
+*.sublime-workspace
