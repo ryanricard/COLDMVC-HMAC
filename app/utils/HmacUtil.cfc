@@ -54,7 +54,7 @@ component {
 
 	}
 
-	public boolean function validate(required any data, required struct token, required string secret){
+	public boolean function validate(required any data, required string token, required string secret){
 
 		//determine if token matches tokenized data
 		return token == tokenize(data, secret);
