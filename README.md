@@ -38,7 +38,7 @@ Returns: true/false
 
 Purpose: Limits the duration a request is valid.
 
-Usage: To achieve heightened security with Expiry, passed data must be of datatype struct containing the key 'timestamp' and a valid datetime value.  Timestamp is included in the computation of the hash returned by _tokenize()_ thus altered timestamp will result in _validate()_ returning _false_.  Expiry uses _server-time + timeout_ (defaulted to 5 minutes) to determine the expiration of requests.
+Usage: To achieve heightened security with Expiry, passed data must be of datatype struct containing the key 'timestamp' and a valid datetime value.  Timestamp is included in the computation of the hash returned by _tokenize()_ thus altered timestamps will result in _validate()_ returning _false_.  Expiry uses _server-time + timeout_ to determine the expiration of requests.
 
 
 
