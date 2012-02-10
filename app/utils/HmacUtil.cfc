@@ -9,6 +9,32 @@ component {
 	 */
 	property $;
 
+	private boolean function expiry(required struct data, required numeric timeout){
+
+		var valid = false;
+		var theshold = {};
+
+		//if timestamp is a valid date, then determine if timestamp is within timeout
+		if(isDate(data.timestamp)){
+
+			//parse timestamp
+			data.timestamp = parseDateTime(data.timestamp);
+
+			//set begin and end timeout thresholds
+			threshold = {
+				begin = now(),
+				end = dateAdd(now(), timeout, "n")
+			}
+
+			//deterime if timestamp is within timeout
+			valid = (theshold.begin <= data.timestamp) && (data.timestamp <= theshold.end);
+
+		}
+
+		return valid;
+
+	}
+
 	private string function hash(required any data, required string secret){
 
 		//if data is a struct, normalize because key order is not consistent
@@ -54,10 +80,25 @@ component {
 
 	}
 
-	public boolean function validate(required any data, required string token, required string secret){
+	public boolean function validate(required any data, required string token, required string secret, numeric timeout = 5){
 
-		//determine if token matches tokenized data
-		return token == tokenize(data, secret);
+		var valid = false;
+
+		//if data is a struct and includes the key 'timestamp', then validate token with expiry
+		if(isStruct(data) && structKeyExists(data, "timestamp")){
+
+			//determine if token matches tokenized data and timestamp is within timeout
+			valid = token == tokenize(data, secret) && expiry(data, timeout);
+
+		} else {
+
+			//determine if token matches tokenized data
+			valid = token == tokenize(data, secret);
+
+		}
+
+
+		return valid;
 
 	}
 
