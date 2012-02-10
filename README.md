@@ -11,7 +11,9 @@ Update your app's _/config/plugins.cfm_ with the following.
 Then inject HmacUtil into a component to implement:
 
 <code>
+
 	property HmacUtil;
+
 </code>
 
 ####Available Methods:
