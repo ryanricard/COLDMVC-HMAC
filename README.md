@@ -1,6 +1,6 @@
 ###A HMAC security plugin for ColdMVC
 
-####Usage:
+####Usage
 
 Download the HMAC plugin for ColdMVC and put it inside your _/plugins_ folder. Name the directory however you like; to reduce possible conflict, I suggest namespacing it _/com-ryanricard-hmac_.
 
@@ -8,13 +8,13 @@ Update your app's _/config/plugins.cfm_ with the following.
 
 	<cfset add("com-ryanricard-hmac") />
 
-Then inject HmacUtil into a component to implement:
+Then inject HmacUtil into a component to implement.
 
 <pre>
 <code>property HmacUtil;</code>
 </pre>
 
-####Available Methods:
+####Available Methods
 
 #####tokenize(data, secret)
 
