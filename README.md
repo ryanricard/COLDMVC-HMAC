@@ -8,11 +8,11 @@ Update your app's _/config/plugins.cfm_ with the following.
 
 	<cfset add("com-ryanricard-hmac") />
 
-######Inject HmacUtil into a component:
+Then inject HmacUtil into a component to implement:
 
 <code>property HmacUtil;</code>
 
-######Available Methods:
+####Available Methods:
 
 ######tokenize(data, secret)
 
@@ -30,13 +30,11 @@ Returns: true/false
 * secret: a secret string to be used as a hash key
 * timeout (default = 5): numeric value in minutes to be used as an expiry threshold from the time of the request
 
-######Expiry
+####Expiry
 
 Purpose: Limits the duration a request is valid.
 
-#######data.timestamp
-
-To use use additional security with Expiry, passed data must be of datatype struct containing the key 'timestamp' and a valid datetime value.  Timestamp is included in the computation of the hash returned by _tokenize()_ thus altered timestamp will result in _validate()_ returning _false_.  Expiry uses _server-time + timeout_ (defaulted to 5 minutes) to determine the expiration of requests.
+Usage: To use use additional security with Expiry, passed data must be of datatype struct containing the key 'timestamp' and a valid datetime value.  Timestamp is included in the computation of the hash returned by _tokenize()_ thus altered timestamp will result in _validate()_ returning _false_.  Expiry uses _server-time + timeout_ (defaulted to 5 minutes) to determine the expiration of requests.
 
 
 
