@@ -17,11 +17,11 @@ component {
 		if(isDate(data.timestamp)){
 
 			//parse timestamp
-			data.timestamp = parseDateTime(data.timestamp);
+			local.timestamp = parseDateTime(data.timestamp);
 
 			local.threshold = dateAdd("n", timeout, now());
 
-			valid = (dateCompare(local.threshold, data.timestamp)) ? true : valid;
+			valid = (dateCompare(local.threshold, local.timestamp) == 1) ? true : valid;
 
 		}
 
@@ -30,6 +30,9 @@ component {
 	}
 
 	private string function hash(required any data, required string secret){
+
+		//make a deep copy to avoid overwriting original data
+		data = duplicate(data);
 
 		//if data is a struct, normalize because key order is not consistent
 		if(isStruct(data)){
