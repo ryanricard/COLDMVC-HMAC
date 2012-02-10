@@ -12,7 +12,6 @@ component {
 	private boolean function expiry(required struct data, required numeric timeout){
 
 		var valid = false;
-		var theshold = {};
 
 		//if timestamp is a valid date, then determine if timestamp is within timeout
 		if(isDate(data.timestamp)){
@@ -20,14 +19,9 @@ component {
 			//parse timestamp
 			data.timestamp = parseDateTime(data.timestamp);
 
-			//set begin and end timeout thresholds
-			threshold = {
-				begin = now(),
-				end = dateAdd(now(), timeout, "n")
-			};
+			local.threshold = dateAdd("n", timeout, now());
 
-			//deterime if timestamp is within timeout
-			valid = (theshold.begin <= data.timestamp) && (data.timestamp <= theshold.end);
+			valid = (dateCompare(local.threshold, data.timestamp)) ? true : valid;
 
 		}
 
