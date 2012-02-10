@@ -10,7 +10,9 @@ Update your app's _/config/plugins.cfm_ with the following.
 
 Then inject HmacUtil into a component to implement:
 
-<code>property HmacUtil;</code>
+<code>
+	property HmacUtil;
+</code>
 
 ####Available Methods:
 
@@ -18,17 +20,17 @@ Then inject HmacUtil into a component to implement:
 
 Returns: tokenized string
 
-* data: any value complex or simple
-* secret: a secret string to be used as a hash key
+* data (required): any value complex or simple
+* secret (required): a secret string to be used as a hash key
 
 ######validate(data, token, secret, timeout)
 
 Returns: true/false
 
-* data: any value complex or simple
-* token: value returned from calling tokenize on the same data
-* secret: a secret string to be used as a hash key
-* timeout (default = 5): numeric value in minutes to be used as an expiry threshold from the time of the request
+* data (required): any value complex or simple
+* token (required): value returned from calling tokenize on the same data
+* secret (required): a secret string to be used as a hash key
+* timeout (optional; default = 5): numeric value in minutes to be used as an expiry threshold from the time of the request
 
 ####Expiry
 
