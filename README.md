@@ -1,6 +1,6 @@
-####A HMAC security plugin for ColdMVC
+###A HMAC security plugin for ColdMVC
 
-#####Usage:
+####Usage:
 
 Download the HMAC plugin for ColdMVC and put it inside your _/plugins_ folder. Name the directory however you like; to reduce possible conflict, I suggest namespacing it _/com-ryanricard-hmac_.
 
@@ -14,16 +14,16 @@ Then inject HmacUtil into a component to implement:
 	property HmacUtil;
 </code>
 
-#####Available Methods:
+####Available Methods:
 
-######tokenize(data, secret)
+#####tokenize(data, secret)
 
 Returns: tokenized string
 
 * data (required): any value complex or simple
 * secret (required): a secret string to be used as a hash key
 
-######validate(data, token, secret, timeout)
+#####validate(data, token, secret, timeout)
 
 Returns: true/false
 
@@ -32,7 +32,7 @@ Returns: true/false
 * secret (required): a secret string to be used as a hash key
 * timeout (optional; default = 5): numeric value in minutes to be used as an expiry threshold from the time of the request
 
-#####Expiry
+####Expiry
 
 Purpose: Limits the duration a request is valid.
 
@@ -40,7 +40,7 @@ Usage: To achieve heightened security with Expiry, passed data must be of dataty
 
 
 
-#####Copyright 2012 Ryan Ricard
+####Copyright 2012 Ryan Ricard
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
