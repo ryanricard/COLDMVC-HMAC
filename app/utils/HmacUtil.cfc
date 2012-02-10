@@ -24,7 +24,7 @@ component {
 			threshold = {
 				begin = now(),
 				end = dateAdd(now(), timeout, "n")
-			}
+			};
 
 			//deterime if timestamp is within timeout
 			valid = (theshold.begin <= data.timestamp) && (data.timestamp <= theshold.end);
