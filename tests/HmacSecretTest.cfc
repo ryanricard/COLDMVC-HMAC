@@ -12,8 +12,6 @@ component {
 
 	}
 
-	//function name format: _should_be_[valid|invalid]_when_
-
 	function request_should_be_valid_when_secrets_match() {
 
 		var data = {

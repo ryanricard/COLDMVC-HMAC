@@ -11,8 +11,6 @@ component {
 
 	}
 
-	//function name format: _should_be_[valid|invalid]_when_
-
 	function request_should_be_valid_when_expiry_is_within_default_threshold() {
 
 		var params = {
